@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#207bba"
+    tools:context=".GameActivity">
+
+    <TextView
+        android:id="@+id/txt_turn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="#f44336"
+        android:text="X turn"
+        android:layout_marginBottom="15dp"/>
+
+    <GridLayout
+        android:id="@+id/GridLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:rowCount="4"
+        android:layout_gravity="center"
+        android:background="#ffffff"
+        >
+        <!--Aqui vai a imagem -->
+        <!--
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/index_1"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/index_2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/index_3"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/index_4"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/index_5"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/index_6"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/index_7"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/index_8"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/index_9"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+
+        -->
+        <!--
+        <TextView
+            android:id="@+id/index_1"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_3"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_4"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_5"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_6"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_7"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_8"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_9"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+      -->
+
+        <TextView
+            android:id="@+id/index_00"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_01"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_02"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_10"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_11"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_12"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_20"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_21"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+        <TextView
+            android:id="@+id/index_22"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_margin="5dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_marginTop="30dp"
+            android:layout_margin="5dp"
+            android:textSize="30dp"
+            android:text="P1" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_marginTop="30dp"
+            android:layout_margin="5dp"
+            android:textSize="30dp"
+            android:text="P2" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="#207bba"
+            android:layout_marginTop="30dp"
+            android:layout_margin="5dp"
+            android:textSize="30dp"
+            android:text="C" />
+
+
+
+
+    </GridLayout>
+
+
+</LinearLayout>
