@@ -197,17 +197,18 @@
             android:background="#207bba"
             android:layout_margin="5dp" />
 
-        <Button
-            android:id="@+id/button"
+        <ImageButton
+            android:id="@+id/player1"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:background="#207bba"
             android:layout_marginTop="30dp"
             android:layout_margin="5dp"
+            android:onClick="tirarFoto"
             android:textSize="30dp"
             android:text="P1" />
-        <Button
-            android:id="@+id/button2"
+        <ImageButton
+            android:id="@+id/player2"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:background="#207bba"
