@@ -1,13 +1,18 @@
 package com.example.jogodavelha;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,20 +34,22 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class GameActivity extends AppCompatActivity {
-    private TextView[][] gameboard = new TextView[3][3];
-    private File SelfiePlayer1 = null;
-    private File SelfiePlayer2 = null;
+    private ImageButton[][] gameboard = new ImageButton[3][3];
+    private File arquivoFoto = null;
+    private Bitmap selfieplayer1 = null;
+    private Bitmap selfieplayer2 = null;
     private ImageView imagem;
-    private final int GALERIA_IMAGENS = 1;
+    private ImageButton button_player_1 = null;
+    private ImageButton button_player_2 = null;
     private final int CAMERA = 3;
+    private int player = 0;
     private final int PERMISSAO_REQUEST = 2;
 
     //check movment
     private enum TURN {
         CROSS, CIRCLE
-    }
+    };
 
-    ;
     private TURN turn;
     private Boolean winX = false;
     private Boolean winO = false;
@@ -55,7 +62,31 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         ButterKnife.bind(this);
+        this.button_player_1 = (ImageButton) findViewById(R.id.player1);
+        this.button_player_2 = (ImageButton) findViewById(R.id.player2);
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        PERMISSAO_REQUEST);
+            }
+        }
 
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        PERMISSAO_REQUEST);
+            }
+        }
         turn = TURN.CROSS;
 
         for (int i = 0; i < 3; i++) {
@@ -82,23 +113,28 @@ public class GameActivity extends AppCompatActivity {
             }
     )
     public void clickGameBoard(View view) {
-        TextView txtIndex = ((TextView) view);
-        String txt = txtIndex.getText().toString();
+
+        ImageButton imageButtonOption = ((ImageButton) view);
+
+        String txt = imageButtonOption.getTag().toString();
         if (!txt.equals("")) {
             return;
         }
 
         if (turn == TURN.CROSS) {
             turn = TURN.CIRCLE;
-            txtIndex.setText("X");
+            imageButtonOption.setImageBitmap(selfieplayer1);
+            imageButtonOption.setTag("X");
+
             txtTurn.setText("VEZ DO JOGADOR P2");
         } else if (turn == TURN.CIRCLE) {
             turn = TURN.CROSS;
-            txtIndex.setText("O");
+            imageButtonOption.setImageBitmap(selfieplayer2);
+            imageButtonOption.setTag("O");
             txtTurn.setText("VEZ DO JOGADOR P1");
         }
 
-        txtIndex.setEnabled(false);
+        imageButtonOption.setEnabled(false);
 
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog.setTitle("winner");
@@ -118,54 +154,54 @@ public class GameActivity extends AppCompatActivity {
 
         for (int i = 0; i < 3; i++) {
             // horizontal
-            if (gameboard[i][0].getText().toString() == "X" &&
-                    gameboard[i][1].getText().toString() == "X" &&
-                    gameboard[i][2].getText().toString() == "X") {
+            if (gameboard[i][0].getTag().toString() == "X" &&
+                    gameboard[i][1].getTag().toString() == "X" &&
+                    gameboard[i][2].getTag().toString() == "X") {
                 winX = true;
                 return winX;
             }
-            if (gameboard[i][0].getText().toString() == "O" &&
-                    gameboard[i][1].getText().toString() == "O" &&
-                    gameboard[i][2].getText().toString() == "O") {
+            if (gameboard[i][0].getTag().toString() == "O" &&
+                    gameboard[i][1].getTag().toString() == "O" &&
+                    gameboard[i][2].getTag().toString() == "O") {
                 winO = true;
                 return winO;
             }
             //VERTICAL
-            if (gameboard[0][i].getText().toString() == "X" &&
-                    gameboard[1][i].getText().toString() == "X" &&
-                    gameboard[2][i].getText().toString() == "X") {
+            if (gameboard[0][i].getTag().toString() == "X" &&
+                    gameboard[1][i].getTag().toString() == "X" &&
+                    gameboard[2][i].getTag().toString() == "X") {
                 winX = true;
                 return winX;
             }
-            if (gameboard[0][i].getText().toString() == "O" &&
-                    gameboard[1][i].getText().toString() == "O" &&
-                    gameboard[2][i].getText().toString() == "O") {
+            if (gameboard[0][i].getTag().toString() == "O" &&
+                    gameboard[1][i].getTag().toString() == "O" &&
+                    gameboard[2][i].getTag().toString() == "O") {
                 winO = true;
                 return winO;
             }
 
             //DIAGONAL
-            if (gameboard[0][0].getText().toString() == "X" &&
-                    gameboard[1][1].getText().toString() == "X" &&
-                    gameboard[2][2].getText().toString() == "X") {
+            if (gameboard[0][0].getTag().toString() == "X" &&
+                    gameboard[1][1].getTag().toString() == "X" &&
+                    gameboard[2][2].getTag().toString() == "X") {
                 winX = true;
                 return winX;
             }
-            if (gameboard[0][0].getText().toString() == "O" &&
-                    gameboard[1][1].getText().toString() == "O" &&
-                    gameboard[2][2].getText().toString() == "O") {
+            if (gameboard[0][0].getTag().toString() == "O" &&
+                    gameboard[1][1].getTag().toString() == "O" &&
+                    gameboard[2][2].getTag().toString() == "O") {
                 winO = true;
                 return winO;
             }
-            if (gameboard[0][2].getText().toString() == "X" &&
-                    gameboard[1][1].getText().toString() == "X" &&
-                    gameboard[2][0].getText().toString() == "X") {
+            if (gameboard[0][2].getTag().toString() == "X" &&
+                    gameboard[1][1].getTag().toString() == "X" &&
+                    gameboard[2][0].getTag().toString() == "X") {
                 winX = true;
                 return winX;
             }
-            if (gameboard[0][2].getText().toString() == "O" &&
-                    gameboard[1][1].getText().toString() == "O" &&
-                    gameboard[2][0].getText().toString() == "O") {
+            if (gameboard[0][2].getTag().toString() == "O" &&
+                    gameboard[1][1].getTag().toString() == "O" &&
+                    gameboard[2][0].getTag().toString() == "O") {
                 winO = true;
                 return winO;
             }
@@ -186,9 +222,9 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void tirarFoto(View view) {
-        File arquivoFoto = null;
 
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             try {
                 arquivoFoto = criaArquivo();
@@ -201,28 +237,43 @@ public class GameActivity extends AppCompatActivity {
                         getBaseContext().getApplicationContext().getPackageName() +
                                 ".provider", arquivoFoto);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                switch (view.getId()) {
+                    case (R.id.player1):
+                        player = 1;
+                    break;
+                    case (R.id.player2):
+                        player = 2;
+                    break;
+                }
+
                 startActivityForResult(takePictureIntent, CAMERA);
             }
         }
 
+    }
 
-        switch (view.getId()) {
-            case (R.id.player1):
-                SelfiePlayer1 = arquivoFoto;
-                final ImageButton p1 = (ImageButton) findViewById(R.id.player1);
-                Bitmap s1 = BitmapFactory.decodeFile(SelfiePlayer1.getAbsolutePath());
-                p1.setImageBitmap(s1);
-                break;
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-            case (R.id.player2):
-                SelfiePlayer2 = arquivoFoto;
-                final ImageButton p2 = (ImageButton) findViewById(R.id.player2);
-                Bitmap s2 = BitmapFactory.decodeFile(SelfiePlayer2.getAbsolutePath());
-                p2.setImageBitmap(s2);
-                break;
+        if (resultCode == RESULT_OK && requestCode == CAMERA) {
+            Bitmap selfie = BitmapFactory.decodeFile(arquivoFoto.getAbsolutePath());
+
+            switch (player) {
+                case 1:
+                    this.button_player_1.setImageBitmap(selfie);
+                    selfieplayer1 = selfie;
+
+                case 2:
+                    this.button_player_2.setImageBitmap(selfie);
+                    selfieplayer2 = selfie;
+            }
         }
 
+
+
     }
+
 
     private void mostraAlerta(String titulo, String mensagem) {
         android.app.AlertDialog alertDialog = new
