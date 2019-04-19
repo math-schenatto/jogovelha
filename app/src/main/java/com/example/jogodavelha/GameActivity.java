@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -17,6 +18,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -151,12 +153,14 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void changeColor(ImageButton q1, ImageButton q2, ImageButton q3 ){
+
+        int pad = 5;
         q1.setBackgroundColor(Color.parseColor("#4CAF50"));
-        q1.setPadding(5, 5, 5, 5);
-        q2.setBackgroundColor(Color.parseColor("#4CAF50"));
-        q2.setPadding(5, 5, 5, 5);
-        q3.setBackgroundColor(Color.parseColor("#4CAF50"));
-        q3.setPadding(5, 5, 5, 5);
+        q1.setPadding(pad, pad, pad, pad);
+        q2.setBackgroundColor(Color.parseColor("#4CAFpad0"));
+        q2.setPadding(pad, pad, pad, pad);
+        q3.setBackgroundColor(Color.parseColor("#4CAFpad0"));
+        q3.setPadding(pad, pad, pad, pad);
 
 
     }
