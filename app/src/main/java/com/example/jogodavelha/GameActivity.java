@@ -116,8 +116,7 @@ public class GameActivity extends AppCompatActivity {
 
         ImageButton imageButtonOption = ((ImageButton) view);
 
-        String txt = imageButtonOption.getTag().toString();
-        if (!txt.equals("")) {
+        if ("" == imageButtonOption.getTag()) {
             return;
         }
 
@@ -154,54 +153,54 @@ public class GameActivity extends AppCompatActivity {
 
         for (int i = 0; i < 3; i++) {
             // horizontal
-            if (gameboard[i][0].getTag().toString() == "X" &&
-                    gameboard[i][1].getTag().toString() == "X" &&
-                    gameboard[i][2].getTag().toString() == "X") {
+            if (gameboard[i][0].getTag().toString().equals("X")  &&
+                    gameboard[i][1].getTag().toString().equals("X") &&
+                    gameboard[i][2].getTag().toString().equals("X")) {
                 winX = true;
                 return winX;
             }
-            if (gameboard[i][0].getTag().toString() == "O" &&
-                    gameboard[i][1].getTag().toString() == "O" &&
-                    gameboard[i][2].getTag().toString() == "O") {
+            if (gameboard[i][0].getTag().toString().equals("O") &&
+                    gameboard[i][1].getTag().toString().equals("O") &&
+                    gameboard[i][2].getTag().toString().equals("O")) {
                 winO = true;
                 return winO;
             }
             //VERTICAL
-            if (gameboard[0][i].getTag().toString() == "X" &&
-                    gameboard[1][i].getTag().toString() == "X" &&
-                    gameboard[2][i].getTag().toString() == "X") {
+            if (gameboard[0][i].getTag().toString().equals("X") &&
+                    gameboard[1][i].getTag().toString().equals("X") &&
+                    gameboard[2][i].getTag().toString().equals("X")) {
                 winX = true;
                 return winX;
             }
-            if (gameboard[0][i].getTag().toString() == "O" &&
-                    gameboard[1][i].getTag().toString() == "O" &&
-                    gameboard[2][i].getTag().toString() == "O") {
+            if (gameboard[0][i].getTag().toString().equals("O") &&
+                    gameboard[1][i].getTag().toString().equals("O") &&
+                    gameboard[2][i].getTag().toString().equals("O")) {
                 winO = true;
                 return winO;
             }
 
             //DIAGONAL
-            if (gameboard[0][0].getTag().toString() == "X" &&
-                    gameboard[1][1].getTag().toString() == "X" &&
-                    gameboard[2][2].getTag().toString() == "X") {
+            if (gameboard[0][0].getTag().toString().equals("X") &&
+                    gameboard[1][1].getTag().toString().equals("X") &&
+                    gameboard[2][2].getTag().toString().equals("X")) {
                 winX = true;
                 return winX;
             }
-            if (gameboard[0][0].getTag().toString() == "O" &&
-                    gameboard[1][1].getTag().toString() == "O" &&
-                    gameboard[2][2].getTag().toString() == "O") {
+            if (gameboard[0][0].getTag().toString().equals("O") &&
+                    gameboard[1][1].getTag().toString().equals("O") &&
+                    gameboard[2][2].getTag().toString().equals("O")) {
                 winO = true;
                 return winO;
             }
-            if (gameboard[0][2].getTag().toString() == "X" &&
-                    gameboard[1][1].getTag().toString() == "X" &&
-                    gameboard[2][0].getTag().toString() == "X") {
+            if (gameboard[0][2].getTag().toString().equals("X") &&
+                    gameboard[1][1].getTag().toString().equals("X") &&
+                    gameboard[2][0].getTag().toString().equals("X")) {
                 winX = true;
                 return winX;
             }
-            if (gameboard[0][2].getTag().toString() == "O" &&
-                    gameboard[1][1].getTag().toString() == "O" &&
-                    gameboard[2][0].getTag().toString() == "O") {
+            if (gameboard[0][2].getTag().toString().equals("O") &&
+                    gameboard[1][1].getTag().toString().equals("O") &&
+                    gameboard[2][0].getTag().toString().equals("O")) {
                 winO = true;
                 return winO;
             }
@@ -263,10 +262,12 @@ public class GameActivity extends AppCompatActivity {
                 case 1:
                     this.button_player_1.setImageBitmap(selfie);
                     selfieplayer1 = selfie;
-
+                break;
                 case 2:
                     this.button_player_2.setImageBitmap(selfie);
                     selfieplayer2 = selfie;
+                break;
+
             }
         }
 

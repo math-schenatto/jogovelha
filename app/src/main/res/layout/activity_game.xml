@@ -4,116 +4,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="#207bba"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".GameActivity">
 
     <TextView
         android:id="@+id/txt_turn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textColor="#f44336"
+        android:layout_marginBottom="15dp"
         android:text="X turn"
-        android:layout_marginBottom="15dp"/>
+        android:textAlignment="center"
+        android:textColor="#f44336" />
 
     <GridLayout
         android:id="@+id/GridLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:columnCount="3"
-        android:rowCount="4"
         android:layout_gravity="center"
         android:background="#ffffff"
-        >
+        android:columnCount="3"
+        android:rowCount="4">
 
         <ImageButton
             android:id="@+id/index_00"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_margin="5dp"
             android:background="#207bba"
-            android:layout_margin="5dp" />
+            android:tag="" />
+
         <ImageButton
             android:id="@+id/index_01"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_margin="5dp"
             android:background="#207bba"
-            android:layout_margin="5dp" />
+            android:tag="" />
+
         <ImageButton
             android:id="@+id/index_02"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_margin="5dp"
             android:background="#207bba"
-            android:layout_margin="5dp" />
+            android:tag="" />
+
         <ImageButton
             android:id="@+id/index_10"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_margin="5dp"
             android:background="#207bba"
-            android:layout_margin="5dp" />
+            android:tag="" />
+
         <ImageButton
             android:id="@+id/index_11"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_margin="5dp"
             android:background="#207bba"
-            android:layout_margin="5dp" />
+            android:tag="" />
+
         <ImageButton
             android:id="@+id/index_12"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_margin="5dp"
             android:background="#207bba"
-            android:layout_margin="5dp" />
+            android:tag="" />
+
         <ImageButton
             android:id="@+id/index_20"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_margin="5dp"
             android:background="#207bba"
-            android:layout_margin="5dp" />
+            android:tag="" />
+
         <ImageButton
             android:id="@+id/index_21"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_margin="5dp"
             android:background="#207bba"
-            android:layout_margin="5dp" />
+            android:tag="" />
+
         <ImageButton
             android:id="@+id/index_22"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_margin="5dp"
             android:background="#207bba"
-            android:layout_margin="5dp" />
+            android:tag="" />
 
         <ImageButton
             android:id="@+id/player1"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:background="#207bba"
-            android:layout_marginTop="30dp"
             android:layout_margin="5dp"
+            android:layout_marginTop="30dp"
+            android:background="#207bba"
             android:onClick="tirarFoto"
-            android:textSize="30dp"
-            android:text="P1" />
+            android:text="P1"
+            android:textSize="30dp" />
+
         <ImageButton
             android:id="@+id/player2"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:background="#207bba"
-            android:layout_marginTop="30dp"
             android:layout_margin="5dp"
+            android:layout_marginTop="30dp"
+            android:background="#207bba"
             android:onClick="tirarFoto"
-            android:textSize="30dp"
-            android:text="P2" />
+            android:text="P2"
+            android:textSize="30dp" />
+
         <Button
             android:id="@+id/button3"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:background="#207bba"
-            android:layout_marginTop="30dp"
             android:layout_margin="5dp"
-            android:textSize="30dp"
-            android:text="C" />
-
-
+            android:layout_marginTop="30dp"
+            android:background="#207bba"
+            android:text="C"
+            android:textSize="30dp" />
 
 
     </GridLayout>
