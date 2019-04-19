@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
@@ -149,6 +150,17 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    private void changeColor(ImageButton q1, ImageButton q2, ImageButton q3 ){
+        q1.setBackgroundColor(Color.parseColor("#4CAF50"));
+        q1.setPadding(5, 5, 5, 5);
+        q2.setBackgroundColor(Color.parseColor("#4CAF50"));
+        q2.setPadding(5, 5, 5, 5);
+        q3.setBackgroundColor(Color.parseColor("#4CAF50"));
+        q3.setPadding(5, 5, 5, 5);
+
+
+    }
+
     private Boolean checkResults() {
 
         for (int i = 0; i < 3; i++) {
@@ -157,12 +169,14 @@ public class GameActivity extends AppCompatActivity {
                     gameboard[i][1].getTag().toString().equals("X") &&
                     gameboard[i][2].getTag().toString().equals("X")) {
                 winX = true;
+                changeColor(gameboard[i][0], gameboard[i][1], gameboard[i][2]);
                 return winX;
             }
             if (gameboard[i][0].getTag().toString().equals("O") &&
                     gameboard[i][1].getTag().toString().equals("O") &&
                     gameboard[i][2].getTag().toString().equals("O")) {
                 winO = true;
+                changeColor(gameboard[i][0], gameboard[i][1], gameboard[i][2]);
                 return winO;
             }
             //VERTICAL
@@ -170,12 +184,16 @@ public class GameActivity extends AppCompatActivity {
                     gameboard[1][i].getTag().toString().equals("X") &&
                     gameboard[2][i].getTag().toString().equals("X")) {
                 winX = true;
+                changeColor(gameboard[0][i], gameboard[1][i], gameboard[2][i]);
+
                 return winX;
             }
             if (gameboard[0][i].getTag().toString().equals("O") &&
                     gameboard[1][i].getTag().toString().equals("O") &&
                     gameboard[2][i].getTag().toString().equals("O")) {
                 winO = true;
+                changeColor(gameboard[0][i], gameboard[1][i], gameboard[2][i]);
+
                 return winO;
             }
 
@@ -184,24 +202,31 @@ public class GameActivity extends AppCompatActivity {
                     gameboard[1][1].getTag().toString().equals("X") &&
                     gameboard[2][2].getTag().toString().equals("X")) {
                 winX = true;
+                changeColor(gameboard[0][0], gameboard[1][1], gameboard[2][2]);
+
                 return winX;
             }
             if (gameboard[0][0].getTag().toString().equals("O") &&
                     gameboard[1][1].getTag().toString().equals("O") &&
                     gameboard[2][2].getTag().toString().equals("O")) {
                 winO = true;
+                changeColor(gameboard[0][0], gameboard[1][1], gameboard[2][2]);
+
                 return winO;
             }
             if (gameboard[0][2].getTag().toString().equals("X") &&
                     gameboard[1][1].getTag().toString().equals("X") &&
                     gameboard[2][0].getTag().toString().equals("X")) {
                 winX = true;
+                changeColor(gameboard[0][2], gameboard[1][1], gameboard[2][0]);
+
                 return winX;
             }
             if (gameboard[0][2].getTag().toString().equals("O") &&
                     gameboard[1][1].getTag().toString().equals("O") &&
                     gameboard[2][0].getTag().toString().equals("O")) {
                 winO = true;
+                changeColor(gameboard[0][2], gameboard[1][1], gameboard[2][0]);
                 return winO;
             }
         }
