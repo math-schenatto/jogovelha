@@ -47,6 +47,7 @@ public class GameActivity extends AppCompatActivity {
     private final int CAMERA = 3;
     private int player = 0;
     private final int PERMISSAO_REQUEST = 2;
+    private int jogada = 0;
 
     //check movment
     private enum TURN {
@@ -56,6 +57,7 @@ public class GameActivity extends AppCompatActivity {
     private TURN turn;
     private Boolean winX = false;
     private Boolean winO = false;
+    private Boolean NotWin = false;
 
     @BindView(R.id.txt_turn)
     TextView txtTurn;
@@ -118,7 +120,7 @@ public class GameActivity extends AppCompatActivity {
     public void clickGameBoard(View view) {
 
         ImageButton imageButtonOption = ((ImageButton) view);
-
+        jogada = jogada + 1;
         if ("" == imageButtonOption.getTag()) {
             return;
         }
@@ -139,14 +141,17 @@ public class GameActivity extends AppCompatActivity {
         imageButtonOption.setEnabled(false);
 
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("winner");
+        dialog.setTitle("RESULTADO DO JOGO");
         dialog.setCancelable(true);
         if (checkResults()) {
             if (winX) {
-                dialog.setMessage("P1 GANHOU");
+                dialog.setMessage("JOGADOR 1 GANHOU");
                 dialog.create().show();
             } else if (winO) {
-                dialog.setMessage("P2 GANHOU");
+                dialog.setMessage("JOGADOR 2 GANHOU");
+                dialog.create().show();
+            } else if (NotWin){
+                dialog.setMessage("EMPATE");
                 dialog.create().show();
             }
         }
@@ -236,6 +241,11 @@ public class GameActivity extends AppCompatActivity {
             }
         }
 
+        if(jogada==9){
+            NotWin = true;
+            return NotWin;
+        }
+
         return false;
     }
 
@@ -291,10 +301,12 @@ public class GameActivity extends AppCompatActivity {
             switch (player) {
                 case 1:
                     this.button_player_1.setImageBitmap(selfie);
+                    this.button_player_1.setPadding(0, 0, 0, 0);
                     selfieplayer1 = selfie;
                 break;
                 case 2:
                     this.button_player_2.setImageBitmap(selfie);
+                    this.button_player_2.setPadding(0, 0, 0, 0);
                     selfieplayer2 = selfie;
                 break;
 
