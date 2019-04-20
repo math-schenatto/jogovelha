@@ -154,13 +154,14 @@ public class GameActivity extends AppCompatActivity {
 
     private void changeColor(ImageButton q1, ImageButton q2, ImageButton q3 ){
 
-        int pad = 5;
+        int pad = 25;
+        int pad2=25;
         q1.setBackgroundColor(Color.parseColor("#4CAF50"));
-        q1.setPadding(pad, pad, pad, pad);
-        q2.setBackgroundColor(Color.parseColor("#4CAFpad0"));
-        q2.setPadding(pad, pad, pad, pad);
-        q3.setBackgroundColor(Color.parseColor("#4CAFpad0"));
-        q3.setPadding(pad, pad, pad, pad);
+        q1.setPadding(pad, pad2, pad, pad2);
+        q2.setBackgroundColor(Color.parseColor("#4CAF50"));
+        q2.setPadding(pad, pad2, pad, pad2);
+        q3.setBackgroundColor(Color.parseColor("#4CAF50"));
+        q3.setPadding(pad, pad2, pad, pad2);
 
 
     }

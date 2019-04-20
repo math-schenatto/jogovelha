@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">JogoDaVelha</string>
     <string name="erro">erro</string>
+    <string name="erro_salvando_foto">erro</string>
     <string name="ok">ok</string>
-    <string name="erro_salvando_foto">Erro salvando foto</string>
 </resources>
