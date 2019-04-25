@@ -146,6 +146,7 @@
             android:layout_margin="5dp"
             android:layout_marginTop="30dp"
             android:background="#207bba"
+            android:onClick="limparJogo"
             android:text="C"
             android:textSize="30dp" />
 

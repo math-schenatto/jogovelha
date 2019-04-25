@@ -280,6 +280,19 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+    public void limparJogo(View view){
+        ImageButton button = null;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+
+                button = gameboard[i][j];
+                button.setTag("");
+                button.setImageBitmap(null);
+
+            }
+        }
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
