@@ -36,6 +36,7 @@
             android:adjustViewBounds="true"
             android:background="#207bba"
             android:scaleType="fitXY"
+            android:onClick="clickGameBoard"
             android:tag="" />
 
         <ImageButton
@@ -46,6 +47,7 @@
             android:adjustViewBounds="true"
             android:background="#207bba"
             android:scaleType="fitXY"
+            android:onClick="clickGameBoard"
             android:tag="" />
 
         <ImageButton
@@ -56,6 +58,7 @@
             android:adjustViewBounds="true"
             android:background="#207bba"
             android:scaleType="fitXY"
+            android:onClick="clickGameBoard"
             android:tag="" />
 
         <ImageButton
@@ -66,6 +69,7 @@
             android:adjustViewBounds="true"
             android:background="#207bba"
             android:scaleType="fitXY"
+            android:onClick="clickGameBoard"
             android:tag="" />
 
         <ImageButton
@@ -76,6 +80,7 @@
             android:adjustViewBounds="true"
             android:background="#207bba"
             android:scaleType="fitXY"
+            android:onClick="clickGameBoard"
             android:tag="" />
 
         <ImageButton
@@ -86,6 +91,7 @@
             android:adjustViewBounds="true"
             android:background="#207bba"
             android:scaleType="fitXY"
+            android:onClick="clickGameBoard"
             android:tag="" />
 
         <ImageButton
@@ -96,6 +102,7 @@
             android:adjustViewBounds="true"
             android:background="#207bba"
             android:scaleType="fitXY"
+            android:onClick="clickGameBoard"
             android:tag="" />
 
         <ImageButton
@@ -106,6 +113,7 @@
             android:adjustViewBounds="true"
             android:background="#207bba"
             android:scaleType="fitXY"
+            android:onClick="clickGameBoard"
             android:tag="" />
 
         <ImageButton
@@ -116,6 +124,7 @@
             android:adjustViewBounds="true"
             android:background="#207bba"
             android:scaleType="fitXY"
+            android:onClick="clickGameBoard"
             android:tag="" />
 
         <ImageButton

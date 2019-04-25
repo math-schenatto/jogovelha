@@ -118,10 +118,15 @@ public class GameActivity extends AppCompatActivity {
             }
     )
     public void clickGameBoard(View view) {
+        if (selfieplayer1 == null || selfieplayer2 == null){
+            txtTurn.setText("SELECIONE AS SELFIES");
+            return;
+        }
 
         ImageButton imageButtonOption = ((ImageButton) view);
         jogada = jogada + 1;
-        if ("" == imageButtonOption.getTag()) {
+        String tag_value = imageButtonOption.getTag().toString();
+        if (!tag_value.equals("")) {
             return;
         }
 
@@ -293,12 +298,15 @@ public class GameActivity extends AppCompatActivity {
 
     public void limparJogo(View view){
         ImageButton button = null;
+        jogada = 0;
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
 
                 button = gameboard[i][j];
                 button.setTag("");
                 button.setImageBitmap(null);
+                button.setEnabled(true);
 
             }
         }
@@ -329,7 +337,6 @@ public class GameActivity extends AppCompatActivity {
 
 
     }
-
 
     private void mostraAlerta(String titulo, String mensagem) {
         android.app.AlertDialog alertDialog = new
