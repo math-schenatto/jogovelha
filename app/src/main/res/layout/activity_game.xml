@@ -14,7 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:text="X turn"
+        android:text=""
+        android:textSize="20dp"
         android:textAlignment="center"
         android:textColor="#f44336" />
 
@@ -34,7 +35,7 @@
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
             android:background="#207bba"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:tag="" />
 
         <ImageButton
@@ -44,7 +45,7 @@
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
             android:background="#207bba"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:tag="" />
 
         <ImageButton
@@ -54,7 +55,7 @@
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
             android:background="#207bba"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:tag="" />
 
         <ImageButton
@@ -64,7 +65,7 @@
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
             android:background="#207bba"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:tag="" />
 
         <ImageButton
@@ -74,7 +75,7 @@
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
             android:background="#207bba"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:tag="" />
 
         <ImageButton
@@ -84,7 +85,7 @@
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
             android:background="#207bba"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:tag="" />
 
         <ImageButton
@@ -94,7 +95,7 @@
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
             android:background="#207bba"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:tag="" />
 
         <ImageButton
@@ -104,7 +105,7 @@
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
             android:background="#207bba"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:tag="" />
 
         <ImageButton
@@ -114,7 +115,7 @@
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
             android:background="#207bba"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:tag="" />
 
         <ImageButton
@@ -123,9 +124,14 @@
             android:layout_height="120dp"
             android:layout_margin="5dp"
             android:layout_marginTop="30dp"
+            android:paddingBottom="25dp"
+            android:paddingTop="25dp"
+            android:paddingRight="25dp"
+            android:paddingLeft="25dp"
+            android:scaleType="fitXY"
             android:background="#207bba"
             android:onClick="tirarFoto"
-            android:text="P1"
+            android:src="@drawable/n1"
             android:textSize="30dp" />
 
         <ImageButton
@@ -134,9 +140,14 @@
             android:layout_height="120dp"
             android:layout_margin="5dp"
             android:layout_marginTop="30dp"
+            android:scaleType="fitXY"
+            android:paddingBottom="25dp"
+            android:paddingTop="25dp"
+            android:paddingRight="25dp"
+            android:paddingLeft="25dp"
             android:background="#207bba"
             android:onClick="tirarFoto"
-            android:text="P2"
+            android:src="@drawable/n2"
             android:textSize="30dp" />
 
         <Button
