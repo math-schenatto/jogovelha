@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
@@ -48,6 +49,8 @@ public class GameActivity extends AppCompatActivity {
     private int player = 0;
     private final int PERMISSAO_REQUEST = 2;
     private int jogada = 0;
+    private Bitmap bitmap_n1 =null;
+    private Bitmap bitmap_n2 =null;
 
     //check movment
     private enum TURN {
@@ -69,6 +72,8 @@ public class GameActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         this.button_player_1 = (ImageButton) findViewById(R.id.player1);
         this.button_player_2 = (ImageButton) findViewById(R.id.player2);
+        this.bitmap_n1 = (Bitmap) ((BitmapDrawable)this.button_player_1.getDrawable()).getBitmap();
+        this.bitmap_n2 = (Bitmap) ((BitmapDrawable)this.button_player_2.getDrawable()).getBitmap();
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -118,11 +123,11 @@ public class GameActivity extends AppCompatActivity {
             }
     )
     public void clickGameBoard(View view) {
-        if (selfieplayer1 == null || selfieplayer2 == null){
+        if (selfieplayer1 == null || selfieplayer2 == null) {
             txtTurn.setText("SELECIONE AS SELFIES");
             return;
         }
-
+        ImageButton button = null;
         ImageButton imageButtonOption = ((ImageButton) view);
         jogada = jogada + 1;
         String tag_value = imageButtonOption.getTag().toString();
@@ -155,17 +160,25 @@ public class GameActivity extends AppCompatActivity {
             } else if (winO) {
                 dialog.setMessage("JOGADOR 2 GANHOU");
                 dialog.create().show();
-            } else if (NotWin){
+            } else if (NotWin) {
                 dialog.setMessage("EMPATE");
                 dialog.create().show();
+            }
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+
+                    button = gameboard[i][j];
+                    button.setEnabled(false);
+
+                }
             }
         }
     }
 
-    private void changeColor(ImageButton q1, ImageButton q2, ImageButton q3 ){
+    private void changeColor(ImageButton q1, ImageButton q2, ImageButton q3) {
 
         int pad = 25;
-        int pad2=25;
+        int pad2 = 25;
         q1.setBackgroundColor(Color.parseColor("#4CAF50"));
         q1.setPadding(pad, pad2, pad, pad2);
         q2.setBackgroundColor(Color.parseColor("#4CAF50"));
@@ -180,7 +193,7 @@ public class GameActivity extends AppCompatActivity {
 
         for (int i = 0; i < 3; i++) {
             // horizontal
-            if (gameboard[i][0].getTag().toString().equals("X")  &&
+            if (gameboard[i][0].getTag().toString().equals("X") &&
                     gameboard[i][1].getTag().toString().equals("X") &&
                     gameboard[i][2].getTag().toString().equals("X")) {
                 winX = true;
@@ -246,7 +259,7 @@ public class GameActivity extends AppCompatActivity {
             }
         }
 
-        if(jogada==9){
+        if (jogada == 9) {
             NotWin = true;
             return NotWin;
         }
@@ -284,10 +297,10 @@ public class GameActivity extends AppCompatActivity {
                 switch (view.getId()) {
                     case (R.id.player1):
                         player = 1;
-                    break;
+                        break;
                     case (R.id.player2):
                         player = 2;
-                    break;
+                        break;
                 }
 
                 startActivityForResult(takePictureIntent, CAMERA);
@@ -296,9 +309,18 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    public void limparJogo(View view){
+    public void limparJogo(View view) {
         ImageButton button = null;
         jogada = 0;
+        txtTurn.setText("");
+        selfieplayer1 = null;
+        selfieplayer2 = null;
+        int pad = 30;
+
+        this.button_player_1.setImageBitmap(this.bitmap_n1);
+        this.button_player_2.setImageBitmap(this.bitmap_n2);
+        this.button_player_1.setPadding(pad, pad, pad, pad);
+        this.button_player_2.setPadding(pad, pad, pad, pad);
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -307,7 +329,8 @@ public class GameActivity extends AppCompatActivity {
                 button.setTag("");
                 button.setImageBitmap(null);
                 button.setEnabled(true);
-
+                button.setBackgroundColor(Color.parseColor("#207bba"));
+                button.setPadding(0, 0, 0, 0);
             }
         }
     }
@@ -324,16 +347,15 @@ public class GameActivity extends AppCompatActivity {
                     this.button_player_1.setImageBitmap(selfie);
                     this.button_player_1.setPadding(0, 0, 0, 0);
                     selfieplayer1 = selfie;
-                break;
+                    break;
                 case 2:
                     this.button_player_2.setImageBitmap(selfie);
                     this.button_player_2.setPadding(0, 0, 0, 0);
                     selfieplayer2 = selfie;
-                break;
+                    break;
 
             }
         }
-
 
 
     }
